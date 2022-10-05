@@ -15,7 +15,9 @@ jobs:
 
       - name: Installing requirements
         run: |
-          pip install --no-cache-dir --upgrade -r requirements/requirements.prod.txt
+          pip install --no-cache-dir --upgrade -r requirements/requirements.app.txt
+          pip install --no-cache-dir --upgrade -r requirements/requirements.api.txt
+          pip install --no-cache-dir --upgrade -r requirements/requirements.job.txt
           pip install --no-cache-dir --upgrade -r requirements/requirements.ci.txt
 
       - name: Run CI

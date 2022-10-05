@@ -1,14 +1,18 @@
+import logging
 import urllib.request
 
 from tqdm import tqdm
 
-def get_document(index: str) -> int:
+
+def get_document(index: int) -> int:
     url = f"https://www.elysee.fr/front/pdf/elysee-module-{index}-fr.pdf"
     try:
-        response = urllib.request.urlretrieve(url, "filename.pdf")
-    except:
+        urllib.request.urlretrieve(url, "filename.pdf")
+    except Exception as e:
+        logging.debug(e)
         return 404
-    return response.status_code
+    return 202
+
 
 def get_documents() -> None:
     start = 0
@@ -21,6 +25,7 @@ def get_documents() -> None:
             print(f"Ending at index {index}")
             break
     return
+
 
 if __name__ == "__main__":
     get_documents()

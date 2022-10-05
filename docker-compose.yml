@@ -1,11 +1,11 @@
 version: '3.4'
 
 services:
-  app:
+  app-template-job:
     image: app
     build:
       context: .
-      dockerfile: ./Dockerfile
+      dockerfile: ./Dockerfile.job
     environment:
       TASK: "scrape"
       DATA_NAME: "elysee"
